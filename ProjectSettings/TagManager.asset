@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - platform
+  - climbing
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: platform_layer
     uniqueID: 3365568055
+    locked: 0
+  - name: climbing
+    uniqueID: 2527956167
     locked: 0
   - name: Player
     uniqueID: 754173461
