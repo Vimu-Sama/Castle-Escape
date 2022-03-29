@@ -10,6 +10,9 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] float  run_speed= 0f ;
     [SerializeField] float jump_speed = 0f;
     [SerializeField] float climb_speed = 0f;
+    [SerializeField] Sprite climb_sprite ;
+    SpriteRenderer spriterenderer;
+    float gravity_value;
     Rigidbody2D rb;
     Vector2 v;
     bool jump;
@@ -20,9 +23,11 @@ public class Character_Controller : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gravity_value = rb.gravityScale;
         animator = GetComponent<Animator>();
         col = GetComponentInChildren<BoxCollider2D>();
         cap_collider = GetComponent<CapsuleCollider2D>();
+        spriterenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -71,8 +76,19 @@ public class Character_Controller : MonoBehaviour
 
     void Climbing()
     {
-        if (!cap_collider.IsTouchingLayers(LayerMask.GetMask("climbing"))) return;
-
+        if (!cap_collider.IsTouchingLayers(LayerMask.GetMask("climbing")))
+        {
+            rb.gravityScale = gravity_value;
+            animator.SetBool("climb_sprite", false);
+            return;
+        }
+        else
+        {
+            animator.SetBool("climb_sprite", true);
+        }
+        if (v.y != 0 && v.x==0) animator.SetBool("climb", true);
+        else animator.SetBool("climb", false);
+        rb.gravityScale = 0;
         rb.velocity = new Vector2(rb.velocity.x, v.y * climb_speed * Time.deltaTime);
     }
 }
