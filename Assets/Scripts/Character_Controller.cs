@@ -80,14 +80,17 @@ public class Character_Controller : MonoBehaviour
         {
             rb.gravityScale = gravity_value;
             animator.SetBool("climb_sprite", false);
+            animator.SetBool("climb", false);
             return;
         }
         else
         {
             animator.SetBool("climb_sprite", true);
         }
+
         if (v.y != 0 && v.x==0) animator.SetBool("climb", true);
-        else animator.SetBool("climb", false);
+        else
+            animator.SetBool("climb", false);
         rb.gravityScale = 0;
         rb.velocity = new Vector2(rb.velocity.x, v.y * climb_speed * Time.deltaTime);
     }
