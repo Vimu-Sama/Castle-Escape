@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 580692524}
   - component: {fileID: 580692525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +58,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11018872, y: 0.110188544}
   m_EdgeRadius: 0
+--- !u!1 &1503887549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503887550}
+  m_Layer: 6
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503887550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503887549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.343, y: -0.178, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7756417624623007388}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7756417624623007387
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +104,7 @@ GameObject:
   - component: {fileID: 7756417624623007377}
   - component: {fileID: 7756417624623007378}
   - component: {fileID: 7756417624623007379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -93,6 +124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 580692524}
+  - {fileID: 1503887550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +167,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 754173461
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 645273025, guid: 5e877dd07379c314d80fafa2a18e0664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -217,9 +249,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a3917acbb01364ba1fdc651ef74b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  run_speed: 800
+  run_speed: 500
   jump_speed: 10
-  climb_speed: 0
+  climb_speed: 200
+  deathkick: {x: 10, y: 10}
+  climb_sprite: {fileID: 1376877576, guid: 5e877dd07379c314d80fafa2a18e0664, type: 3}
+  bullet: {fileID: 116301850919369690, guid: e1260644feeabb544bed8b9ffdbb4985, type: 3}
+  gun: {fileID: 1503887549}
 --- !u!114 &7756417624623007379
 MonoBehaviour:
   m_ObjectHideFlags: 0

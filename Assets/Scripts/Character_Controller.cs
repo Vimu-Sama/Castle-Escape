@@ -13,6 +13,8 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] float climb_speed = 0f;
     [SerializeField] Vector2 deathkick = new Vector2(10f, 10f);
     [SerializeField] Sprite climb_sprite ;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
     SpriteRenderer spriterenderer;
     float gravity_value;
     Rigidbody2D rb;
@@ -31,6 +33,7 @@ public class Character_Controller : MonoBehaviour
         col = GetComponentInChildren<BoxCollider2D>();
         cap_collider = GetComponent<CapsuleCollider2D>();
         spriterenderer = GetComponent<SpriteRenderer>();
+       
     }
 
     private void Update()
@@ -56,6 +59,15 @@ public class Character_Controller : MonoBehaviour
         v = input.Get<Vector2>();
     }
 
+    void OnFire(InputValue input)
+    {
+        if (!isAlive || animator.GetBool("climb_sprite") || animator.GetBool("climb"))
+            return ;
+        if(input.isPressed)
+        {
+            Instantiate(bullet, gun.position, transform.rotation);
+        }
+    }
     void OnJump(InputValue input)
     {
         if (!isAlive)
