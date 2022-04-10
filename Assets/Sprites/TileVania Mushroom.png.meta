@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e2459e22a29c34948a92174b7e329394
+guid: cf3f03deec2d6ec4b97804b6e51eb24d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,17 +42,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -138,48 +138,45 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Spikes_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 0
-        width: 28
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 2, y: 7.5}
-        - {x: -7, y: 7.5}
-        - {x: -7.4346724, y: 4.6306562}
-        - {x: -14, y: -8.5}
-        - {x: 14, y: -8.5}
-        - {x: 12, y: 0.5}
-        - {x: 10, y: 8.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa42754326345f24f90598ff991d0947
-      internalID: -1366128269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    outline: []
-    physicsShape: []
+    sprites: []
+    outline:
+    - - {x: -15, y: 0}
+      - {x: -15, y: 5}
+      - {x: -14, y: 7}
+      - {x: -10, y: 12}
+      - {x: -7, y: 13}
+      - {x: 7, y: 13}
+      - {x: 10, y: 12}
+      - {x: 13, y: 8}
+      - {x: 15, y: 5}
+      - {x: 15, y: -2}
+      - {x: 6, y: -2}
+      - {x: 6, y: -15}
+      - {x: -6, y: -15}
+      - {x: -6, y: -2}
+      - {x: -15, y: -2}
+    physicsShape:
+    - - {x: 6, y: -2}
+      - {x: 6, y: -15}
+      - {x: -6, y: -15}
+      - {x: -6, y: -2}
+      - {x: -14, y: -2}
+      - {x: -15, y: 5}
+      - {x: -13, y: 13}
+      - {x: -7, y: 13}
+      - {x: 7, y: 13}
+      - {x: 14, y: 12}
+      - {x: 15, y: 3}
+      - {x: 14, y: -2}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Spikes_1: -2057798309
-      Spikes_0: -1366128269
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

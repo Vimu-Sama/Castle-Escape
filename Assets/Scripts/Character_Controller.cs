@@ -7,9 +7,11 @@ public class Character_Controller : MonoBehaviour
 {
 
     float h;
+    bool isAlive = true;
     [SerializeField] float  run_speed= 0f ;
     [SerializeField] float jump_speed = 0f;
     [SerializeField] float climb_speed = 0f;
+    [SerializeField] Vector2 deathkick = new Vector2(10f, 10f);
     [SerializeField] Sprite climb_sprite ;
     SpriteRenderer spriterenderer;
     float gravity_value;
@@ -19,6 +21,7 @@ public class Character_Controller : MonoBehaviour
     Animator animator;
     BoxCollider2D col;
     CapsuleCollider2D cap_collider;
+
 
     private void Start()
     {
@@ -32,22 +35,39 @@ public class Character_Controller : MonoBehaviour
 
     private void Update()
     {
-        run_animation();
+        if (!isAlive)
+            return;
         Run();
         Climbing();
+        Die();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isAlive)
+            return;
+        run_animation();
     }
 
     void OnMove(InputValue input)
     {
+        if (!isAlive)
+            return;
         v = input.Get<Vector2>();
     }
 
     void OnJump(InputValue input)
     {
-        if (!col.IsTouchingLayers(LayerMask.GetMask("platform")))
+        if (!isAlive)
             return;
+        if (!col.IsTouchingLayers(LayerMask.GetMask("platform")))
+        {
+            rb.gravityScale += 3;
+            return;
+        }
         if(input.isPressed )
         {
+            rb.gravityScale = gravity_value;
             rb.velocity += new Vector2(0f, jump_speed);
         }
     }
@@ -88,10 +108,22 @@ public class Character_Controller : MonoBehaviour
             animator.SetBool("climb_sprite", true);
         }
 
-        if (v.y != 0 && v.x==0) animator.SetBool("climb", true);
+        if (v.y != 0 && v.x==0) 
+            animator.SetBool("climb", true);
         else
             animator.SetBool("climb", false);
         rb.gravityScale = 0;
         rb.velocity = new Vector2(rb.velocity.x, v.y * climb_speed * Time.deltaTime);
     }
+
+    void Die()
+    {
+        if(cap_collider.IsTouchingLayers(LayerMask.GetMask("Enemy")) || cap_collider.IsTouchingLayers(LayerMask.GetMask("Hazard")))
+        {
+            isAlive = false;
+            animator.SetTrigger("Dying");
+            rb.velocity = deathkick;
+        }
+    }
+
 }

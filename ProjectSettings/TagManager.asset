@@ -15,9 +15,9 @@ TagManager:
   - Background
   - platform
   - climbing
-  - 
-  - 
-  - 
+  - bouncing
+  - Enemy
+  - Hazard
   - 
   - 
   - 
@@ -47,11 +47,20 @@ TagManager:
   - name: water_layer
     uniqueID: 2114693633
     locked: 0
+  - name: bouncing
+    uniqueID: 3137228777
+    locked: 0
   - name: platform_layer
     uniqueID: 3365568055
     locked: 0
+  - name: Hazard
+    uniqueID: 2764099117
+    locked: 0
   - name: climbing
     uniqueID: 2527956167
+    locked: 0
+  - name: Enemy
+    uniqueID: 551087341
     locked: 0
   - name: Player
     uniqueID: 754173461
