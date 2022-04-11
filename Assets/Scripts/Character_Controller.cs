@@ -40,7 +40,7 @@ public class Character_Controller : MonoBehaviour
     {
         if (!isAlive)
             return;
-        Run();
+        
         Climbing();
         Die();
     }
@@ -50,6 +50,7 @@ public class Character_Controller : MonoBehaviour
         if (!isAlive)
             return;
         run_animation();
+        Run();
     }
 
     void OnMove(InputValue input)
@@ -74,12 +75,10 @@ public class Character_Controller : MonoBehaviour
             return;
         if (!col.IsTouchingLayers(LayerMask.GetMask("platform")))
         {
-            rb.gravityScale += 3;
             return;
         }
         if(input.isPressed )
         {
-            rb.gravityScale = gravity_value;
             rb.velocity += new Vector2(0f, jump_speed);
         }
     }
@@ -95,7 +94,7 @@ public class Character_Controller : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
-        rb.velocity =new Vector2(v.x * run_speed * Time.deltaTime, rb.velocity.y) ;
+        rb.velocity =new Vector2(v.x * run_speed, rb.velocity.y) ;
     }
 
     void run_animation()
