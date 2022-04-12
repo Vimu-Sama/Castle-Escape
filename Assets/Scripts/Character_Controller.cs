@@ -8,6 +8,7 @@ public class Character_Controller : MonoBehaviour
 
     float h;
     bool isAlive = true;
+    AudioSource audioSource;
     [SerializeField] float  run_speed= 0f ;
     [SerializeField] float jump_speed = 0f;
     [SerializeField] float climb_speed = 0f;
@@ -33,7 +34,7 @@ public class Character_Controller : MonoBehaviour
         col = GetComponentInChildren<BoxCollider2D>();
         cap_collider = GetComponent<CapsuleCollider2D>();
         spriterenderer = GetComponent<SpriteRenderer>();
-       
+        // audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -134,7 +135,9 @@ public class Character_Controller : MonoBehaviour
             isAlive = false;
             animator.SetTrigger("Dying");
             rb.velocity = deathkick;
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
+        
     }
 
 }

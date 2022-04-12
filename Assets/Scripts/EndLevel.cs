@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    [SerializeField] int nxt_lvl=0;
+    int nxt_lvl=0;
     private void Start()
     {
         nxt_lvl = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nxt_lvl == SceneManager.sceneCountInBuildSettings)
+            nxt_lvl = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
